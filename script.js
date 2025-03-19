@@ -1,20 +1,54 @@
 // document.write("Hello World");
 // alert("Hello world");
 // console.log(10+10);
-
 document.write("<h1>JAVASCRIPT writing Html element<h1>");
+
+let myObject = {name:"John", age:30};
+document.write(`My object is: ${JSON.stringify(myObject)}`);
+
+
+let myArray = [1, 2, 3];
+document.write(`<br>My array is: ${myArray.join(", ")}`);
+
+// var a = 1;
+// var b = 2;
+// var c = 3;
+// if(a > 0){
+//     document.write("Value is " + a + "<br>");
+// }
+// if(b > 0){
+//     document.write(`Value is  ${b} <br>`);
+// }
+// if(c > 0){
+//     document.write(`Valus is ${c} <br>`);
+// }
+
+// var a = 50;
+// var b = 20;
+// document.write(!(b == 10));
+
+// var a = 20;
+// var b = "20";
+// document.write(a === b);
+// console.log(5 + "10");
+
+// var a = 10;
+// a %= 4;
+// document.write(a);
+
+// var a = 10;
+// a /= 4;
+// document.write(a);
 
 // let a, b, c, d, e;
 // a, b, c, d, e = 0, "", undefined, null, NaN;
 
-let data = 'DataPassing';
-if(!data){
-    console.log(`Sorry! no records`);
-}else{
-    console.log(`Do something   ${data}`);
-}
-
-
+// let data = 'DataPassing';
+// if(!data){
+//     console.log(`Sorry! no records`);
+// }else{
+//     console.log(`Do something   ${data}`);
+// }
 
 // a = 0;
 // b = "";
@@ -47,7 +81,6 @@ if(!data){
 //     console.log("f: " +e);
 // }
 
-
 // let fruitName = 'Apple';
 // if(fruitName){
 //     console.log('Fruit name available');
@@ -61,7 +94,6 @@ if(!data){
 // }else{
 //     console.log('No I dont have anything');
 // }
-
 
 // console.log(Boolean(0));
 // console.log(Boolean(''));
