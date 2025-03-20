@@ -3,12 +3,76 @@
 // console.log(10+10);
 document.write("<h1>JAVASCRIPT writing Html element<h1>");
 
-let myObject = {name:"John", age:30};
-document.write(`My object is: ${JSON.stringify(myObject)}`);
+for(let i=1; i<=5; i++){
+    document.write(i + "<br>");
+}
 
 
-let myArray = [1, 2, 3];
-document.write(`<br>My array is: ${myArray.join(", ")}`);
+
+
+
+
+
+
+// function getStatus(code){
+//     switch(code * 2){
+//         case 200:
+//             return "OK";
+//         case 404:
+//             return "Not Found";
+//         default:
+//             return "Unknown";
+//     }
+// }
+// console.log(getStatus(100));
+
+// let score = 85;
+// let grade;
+// switch(true){
+//     case score >= 90:
+//         grade = 'A';
+//         break;
+//     case score >= 80:
+//         grade = 'B';
+//         break;
+//     default:
+//         grade = c;
+// }
+// document.write(grade);
+
+// let day = 2;
+// let dayName;
+// switch(day){
+//     case 1:
+//         dayName = "Monday";
+//         break;
+//     case 2:
+//         dayName = "Friday";
+//         break;
+//     default:
+//         dayName = "Invalid day";
+// }
+// document.write(`${dayName}`);
+
+// var a = "a";
+// switch(a){
+//     case "A":
+//         document.write("Apple");
+//         break;
+//     case "B":
+//         document.write("Butter");
+//         break;
+//     case "C":
+//         document.write("Cat");
+//         break;
+//     default:
+//         document.write("Nothing matching");
+// }
+
+// let myObject = {name:"John", age:30};
+// document.write(`My object is: ${JSON.stringify(myObject)}`);
+// let myArray = [1, 2, 3];
+// document.write(`<br>My array is: ${myArray.join(", ")}`);
 
 // var a = 1;
 // var b = 2;

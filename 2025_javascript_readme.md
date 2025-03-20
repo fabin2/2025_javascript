@@ -341,7 +341,89 @@ if(b > 0){
 if(c > 0){
     document.write(`Valus is ${c} <br>`);
 }
-
-
 ```
 
+## SWITCH <br>
+Each `case label` got specific value. If the `expression's value is strictly equal (===)` to value1, the code will be executed.<br>
+If omit `break`, the code will "fall through" to the next case, even if its value doesn't match the expression (unless you intentionally want fall-through behavior) <br>
+`default` label is optional. It specifies the code to execute if the expression doesn't match any of the case values. <br>
+
+```js
+switch (expression){
+    case value1:
+        code 1; // execute if expression === value1
+        break;
+    case value2:
+        code 2;
+        break;
+    case value3:
+        code 3;
+        break;
+    default:
+        code default;
+        break;
+}
+```
+```js
+// 1
+var a = "a";
+
+switch(a){
+    case "A":
+        document.write("Apple"); // "A" Apple 
+        break;
+    case "B":
+        document.write("Butter");
+        break;
+    case "C":
+        document.write("Cat");
+        break;
+    default:
+        document.write("Nothing matching"); // "a" false
+}
+
+// 2
+let day = 2;
+let dayName; //
+
+switch(day){
+    case 1:
+        dayName = "Monday";
+        break;
+    case 2:
+        dayName = "Friday";
+        break;
+    default:
+        dayName = "Invalid day";
+}
+document.write(`${dayName}`); // Friday
+
+// 3 true boolean
+let score = 85;
+let grade;
+
+switch(true){
+    case score >= 90:
+        grade = 'A';
+        break;
+    case score >= 80:
+        grade = 'B';
+        break;
+    default:
+        grade = c;
+}
+document.write(grade); // B
+
+// 4 using function
+function getStatus(code){
+    switch(code * 2){
+        case 200:
+            return "OK";
+        case 404:
+            return "Not Found";
+        default:
+            return "Unknown";
+    }
+}
+document.write(getStatus(100)); // OK
+```
