@@ -74,6 +74,58 @@ console.log(typeof test2); // object { }
 console.log(test2 === undefined); // false
 console.log(test2 == undefined); // true
 ```
+## DIFFERENCES `VAR LET CONST`
+**SCOPE** `var` : function or global | `let, const` : block<br>
+**REASSIGNEMENT** `var, let` : allowed | `const` : not allowed<br>
+**REDECLARATION** `var` : allowed | `let, const` : not allowed in the same scope<br>
+**HOISTING** `var` : hoisted and intialized to `undefined` | `let, const` : Hoisted but not initialized<br>
+In modern JavaScript, it's generally recommended to use **const** by default, and **let** when you know a variable's value will change. Avoid using **var** unless you have a specific reason to do so.<br>
+<br>
+
+**`var`**: Function-scoped or globally-scoped. Can be re-declared and re-assigned. Hoisted (declared before the code is executed).<br>
+
+```js
+// VAR value changing
+function varScope (){
+    var x = 10; // var
+    console.log(x);
+    if (true){
+        var x = 20; // re-declared within 
+        console.log(x); // 20
+    }
+    console.log(x); // 20
+}
+varScope();
+```
+**`let`**: Block-scoped (within { } blocks). Can be re-assigned, but not re-declared in the same scope. Hoisted, but not initialized (accessing before declaration results in an error).<br>
+
+```js
+// LET block sope and outer scope
+function letScope (){
+    let y = 10;
+    if (true){
+        let y = 20; // block scope, different variable
+        console.log(y); // 20
+    }
+    console.log(y); // 10 from the outer scope
+}
+letScope();
+```
+**`const`**: Block-scoped. Cannot be re-assigned or re-declared. Hoisted, but not initialized. When used with objects or arrays, the contents can be modified, but the variable cannot be re-assigned to a new object or array.<br>
+
+```js
+// CONST
+function constScope(){
+    const z = 10;
+ // const z = 20; ERROR Assignment to constant variable!
+    console.log(z);
+    const person = {name: "Fabin"};
+    person.name = "Aron"; // Allowed
+ // person = {name: "Bob"}; ERROR Assignment to constant variable!
+    console.log(person); // {name : "Aron"}
+}
+constScope();
+```
 
 ## Truthy values and Falsy values <br>
 
@@ -426,4 +478,137 @@ function getStatus(code){
     }
 }
 document.write(getStatus(100)); // OK
+```
+
+## LOOP
+Run the same code over and over again, each time with a different value. <br>
+`for` - loops through a block of code a number of times. <br>
+`while` - loops through a block of code while a specified condition is true. <br>
+`do/while` - also loops through a block of code while a specified condition is true. <br>
+`foreach` - 
+`for/in` - loops through the properties of an object. <br>
+`for/of` - loops through the values of an iterable object. <br>
+
+```js
+for (initialization; condition; update){
+    code to be executed;
+}
+```
+```js
+// for
+for(let i=1; i<=5; i++){
+    document.write(i + "<br>"); // 12345
+}
+```
+```js
+// while
+var i = 10;
+while(i >= 5){
+    document.write(i + "<br>"); // 10 9 8 7 6 5
+    i--;
+}
+```
+```js
+// do while
+var i = 10;
+do{
+    document.write(i + "<br>"); // 10 9 8 7 6 5
+    i--;
+}while (i >= 5);
+```
+**FOREACH**
+```js
+// foreach value
+var animalArray = ["Monkey", "Fish", "Tiger"];
+animalArray.forEach(function(value) {
+    document.write(`${value} <br>`); // Monkey Fish Tiger
+});
+
+// foreach value index
+animalArray.forEach(function(arrayValue, arrayIndex) {
+    document.write(`${arrayIndex} : ${arrayValue} <br>`); // 0: Monkey 1: Fish 2: Tiger
+});
+
+// foreach outside function
+animalArray.forEach(loop);
+function loop(arrayValue, arrayIndex) {
+    document.write(`${arrayIndex} : ${arrayValue} <br>`);
+}
+```
+## OBJECT
+**FOR IN** <br>
+for...in is designed for iterating over object properties, not arrays (although it can be used with arrays, it's generally not recommended). <br>
+
+```js
+for (var keyvalue in object){
+    code to be executed
+}
+```
+```js
+var myObject2 = {
+    firstname: "Fabin",
+    lastname: "Riza",
+    Age: 40,
+    emai: "fabinriza1@yahoo.co.in"
+};
+for(key in myObject2){
+    document.write(myObject2[key]); // Fabin bla ....!
+}
+```
+```js
+// function inside
+var myObject = {
+    firstname: 'Fabin',
+    lastname: 'Riza',
+    age: 40,
+    email: 'fabinriza1@yahoo.co.in',
+    hobies: ['Run', 'Gym', 'Ride'],
+    living: {
+        'city': 'Strasbourg',
+        'country': 'France'
+    },
+    salary: function(){
+        return 200000;
+    },
+    fullname: function(){
+        return this.firstname + " " + this.lastname;
+    }
+};
+ document.write(myObject.fullname()); // Fabin Riza
+ document.write(myObject.living.city); // Strasbourg
+```
+another way to make object
+```js
+var person = new Object();
+person.firstname = 'Fabin';
+person.lastname = 'Riza';
+person.age = 25;
+person.fullname = function(){
+    return this.firstname + " " + this.lastname;
+};
+document.write(person.firstname); // Fabin
+document.write(person.fullname()); // Fabin RIza
+```
+```js
+// function checked, if else and Ternery
+var myObject = new Object();
+myObject.firstname = 'Fabin';
+myObject.lastname = 'Riza';
+myObject.age = 25;
+myObject.fullname = function(){
+    return this.firstname + " " + this.lastname;
+};
+for(var key in myObject){
+    if(typeof myObject[key] === 'function'){
+        document.write(key +" : "+ myObject[key]() + "<br>");
+    }else{
+        document.write(key +" : "+ myObject[key] + "<br>");
+    }
+}
+
+// 2 
+for (var key in myObject){
+    let value = (typeof myObject[key] === 'function') ? myObject[key]() : myObject[key];
+    document.write(key + " : " + value + "<br>");
+}
 ```
