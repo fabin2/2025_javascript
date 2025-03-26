@@ -6,26 +6,115 @@ document.write("<h1>JAVASCRIPT writing Html element<h1>");
 // document.write
 // console.log
 
-function sayHello(){
-    document.write("Hello <br>");
-}
-function sayHi(){
-    document.write("Hi <br>")
-}
-function add(num1, num2, callback){
-    document.write(num1 + num2 + " ");
-    callback();
-}
-let a = 80;
-let b = 20;
-add(a, b, sayHello);
-add(50, 10, sayHi);
-add(50, 10, function(){
-    document.write("anonymous function");
-});
 
 
 
+
+
+
+// let a = 100;
+// document.write(Math.abs(a));
+// document.write(Math.max(10, 3, 20, 30));
+// document.write(Math.pow(2,10));
+// document.write(Math.ceil(6.1));
+// document.write(Math.round(6.5));
+// document.write(Math.random());
+// let r = Math.random();
+// let rounded = Math.floor(r*10);
+// document.write(rounded);
+
+// let text = "I AM FABIN RIZA ";
+// document.write(text.length);
+// document.write(text[0]);
+// document.write(text.charAt(1));
+// document.write(text); 
+// document.write(text.replace("I", "i")); 
+// let mytext = "FABIN RIZA";
+// document.write(mytext.split("")); // array(10) ["fabin" "riza"]
+// document.write(mytext.split(" ")); // array(2) ["fabin" "riza"]
+// const dateString = "26-03-2025";
+// const [day, month, year] = dateString.split("-");
+// console.log(` Date:${day} M:${month} Y:${year}`);
+
+// let myArray = ['a','b','c'];
+// for (let i=0; i<myArray.length; i++){
+//     document.write(myArray[+i]);
+// }
+// myArray.forEach(element => {
+//     document.write(element);
+// })
+// for(const element of myArray) {
+//     document.write(element);
+// }
+// document.write( ...myArray); // SPREAD prints all the elements in oneline
+
+// var animal = ["Elephant", "Lion", "Cat"];
+// animal [0] = "Dog"; // replaced index 0
+// animal [3] = "Fish";
+// animal.push("Fox", "Cheetah")
+// animal.shift(); // delete first element
+// animal.pop(); // delete last element
+// animal.sort(); // alphabet order
+// animal.splice(2, 1); // from index 2 remove 1 element (position, numbers of values removed)
+// animal.splice(1, 0, "Crow", "Eagle"); // adding element from 1
+// animal.splice(4); // from index 4 remove till the end
+//  for(var i=0; i<animal.length; i++){
+//      document.write(animal[i] +"<br>"); // index number to print value
+//  }
+// console.log(animal);
+
+// function calcultaCart(...num){
+//     return num;
+// }
+// document.write(calcultaCart(20,40,15,24));
+
+// function sum(math, econ, comp){
+//     let sum = math + econ + comp;
+//     return sum
+// }
+// function percentage(total){
+//     let percent = total/300 * 100;
+//     document.write(percent + " %");
+// }
+// let totalMark = sum(80, 70, 80);
+// percentage(totalMark);
+
+// const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+// const posNumbers = removeNeg(myNumbers, (x) => x >= 0);
+// document.write(posNumbers); // print
+// function removeNeg(number, callback){
+//     const myArray = [];
+//     for (const x of number){
+//         if(callback(x)){
+//             myArray.push(x);
+//         }
+//     }
+//     return myArray;
+// }
+
+// function sum(num1, num2) {
+//     return num1+ num2;
+// }
+// var resultFunction = sum(1,2);
+// document.write(resultFunction);
+
+// function sayHello(){
+//     document.write("Hello <br>");
+// }
+// function sayHi(){
+//     document.write("Hi <br>")
+// }
+// function add(num1, num2, callback){
+//     document.write(num1 + num2 + " ");
+//     callback();
+// }
+// let a = 80;
+// let b = 20;
+// add(a, b, sayHello);
+// add(50, 10, sayHi);
+// add(50, 10, function(){
+//     document.write("anonymous function");
+// });
 
 // function constScope(){
 //     const z = 10;

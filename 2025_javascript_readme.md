@@ -516,25 +516,7 @@ do{
     i--;
 }while (i >= 5);
 ```
-**FOREACH**
-```js
-// foreach value
-var animalArray = ["Monkey", "Fish", "Tiger"];
-animalArray.forEach(function(value) {
-    document.write(`${value} <br>`); // Monkey Fish Tiger
-});
 
-// foreach value index
-animalArray.forEach(function(arrayValue, arrayIndex) {
-    document.write(`${arrayIndex} : ${arrayValue} <br>`); // 0: Monkey 1: Fish 2: Tiger
-});
-
-// foreach outside function
-animalArray.forEach(loop);
-function loop(arrayValue, arrayIndex) {
-    document.write(`${arrayIndex} : ${arrayValue} <br>`);
-}
-```
 ## OBJECT
 **FOR IN** <br>
 for...in is designed for iterating over object properties, not arrays (although it can be used with arrays, it's generally not recommended). <br>
@@ -612,3 +594,176 @@ for (var key in myObject){
     document.write(key + " : " + value + "<br>");
 }
 ```
+## FUNCTION <br>
+```js
+function name(parameter){
+}
+name(argument);
+```
+**...rest parameter**<br>
+Rest parameter `(...name)`: collects idefinite arguments into an array, must be the last parameter. Useful when argument count is unknown.
+```js
+function calcultaCart(...num){
+    return num;
+}
+document.write(calcultaCart(20,40,15,24));
+```
+```js
+// default value in parameter and overwriting
+function hello(firstname = "defaultvalue1", lastname = "defualtvalue2"){
+    document.write("Hi " +firstname+ " " +lastname)
+}
+hello(); // without values, Hi defualtvalue1...
+hello("fabin", "riza"); // Hi Fab.... overwriting
+```
+```js
+// return
+function sum(num1, num2) {
+    return num1+ num2;
+}
+var resultFunction = sum(1,2); // value returned to this function and stored in a variable
+document.write(resultFunction);  // 3
+
+// 2
+function sum(math, econ, comp){
+    let sum = math + econ + comp;
+    return sum
+}
+function percentage(total){
+    let percent = total/300 * 100;
+    document.write(percent + " %"); // 76.6 %
+}
+let totalMark = sum(80, 70, 80);
+percentage(totalMark);
+```
+
+ callback
+```JS
+// 3 callback included anonymous 
+// 100 Hello 60 HI 60 blabla
+function sayHello(){
+    document.write("Hello <br>");
+}
+function sayHi(){
+    document.write("Hi <br>")
+}
+function add(num1, num2, callback){     // callback
+    document.write(num1 + num2 + " ");
+    callback();
+}
+let a = 80;
+let b = 20;
+add(a, b, sayHello); // 100 Hello
+add(50, 10, sayHi); // 60 HI 
+add(50, 10, function(){
+    document.write("anonymous function"); // 60 blabla
+});
+```
+
+## ARRAY <br>
+```js
+var animal = ["Elephant", "Lion", "Cat"];
+animal [0] = "Dog"; // replaced index 0
+animal [3] = "Fish";
+animal.push("Fox", "Cheetah")
+animal.shift(); // delete first element
+animal.pop(); // delete last element
+animal.sort(); // alphabet order/ numerical
+animal.splice(2, 1); // from index 2 remove 1 element (position, numbers of values removed)
+animal.splice(1, 0, "Crow", "Eagle"); // adding element from 1
+animal.splice(4); // from index 4 remove values till the end 
+
+ for(var i=0; i<animal.length; i++){
+     document.write(animal[i] +"<br>"); // index number to print value
+ }
+ console.log(animal); // array(length:4) 0:"Cat" 1:"Crow"
+```
+**FOR FOREACH FOROF SPREAD**
+```js
+let myArray = ['a','b','c'];
+for (let i=0; i<myArray.length; i++){
+    console.log(myArray[i]);
+}
+myArray.forEach(element => {
+    console.log(element);
+})
+for(const element of myArray) {
+    console.log(element);
+}
+console.log( ...myArray); // SPREAD prints all the elements in oneline
+```
+**FOREACH**
+```js
+// foreach value
+var animalArray = ["Monkey", "Fish", "Tiger"];
+animalArray.forEach(function(value) {
+    document.write(`${value} <br>`); // Monkey Fish Tiger
+});
+
+// foreach value index
+animalArray.forEach(function(arrayValue, arrayIndex) {
+    document.write(`${arrayIndex} : ${arrayValue} <br>`); // 0: Monkey 1: Fish 2: Tiger
+});
+
+// foreach outside function
+animalArray.forEach(loop);
+function loop(arrayValue, arrayIndex) {
+    document.write(`${arrayIndex} : ${arrayValue} <br>`);
+}
+```
+
+`JSON.stringify( )`
+```js
+let myArray = ['a',null,undefined, true, false, 'c'];
+document.write(JSON.stringify(myArray)); // ["a",null,null,true,false,"c"]
+```
+**STRING**
+```js
+let text = "FABIN RIZA";
+document.write(text.length); // 10
+document.write(text[0]); // F
+document.write(text.charAt(1)); // A
+document.write(text.replace("I", "i")); 
+document.write(text.slice(2,5)) // BIN
+console.log(mytext.split(" ")); // space " ", array(2) ["FABIN" "RIZA"]
+console.log(mytext.split("")); // no space "", array(10) ["F""" "space" """A"]
+```
+
+Split and array destructuring
+```js
+const dateString = "26-03-2025";
+const [day, month, year] = dateString.split("-");
+console.log(` Date:${day} M:${month} Y:${year}`); // Date:26 M:03 Y:2025
+```
+MATH object
+```js
+let a = 100;
+document.write(Math.sqrt(a)); // 10 square root
+document.write(Math.abs(a)); // absolute, negative value to absolute 
+document.write(Math.min(10, 3, 20, 30)); // 3
+document.write(Math.max(10, 3, 20, 30)); // 30
+document.write(Math.pow(2,10)); // 4 POWER (squre, qube)1024
+document.write(Math.floor(6.9)); // 6
+document.write(Math.ceil(6.1)); // 7
+document.write(Math.round(6.5)); // Round 6.4=6 6.5=7
+document.write(Math.random()); // 0 to 1 random numbers 0.1225blabla
+
+let r = Math.random();
+let rounded = Math.floor(r*10);
+document.write(rounded); // 1 to 10 any random numbers
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
