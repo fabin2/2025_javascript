@@ -753,17 +753,139 @@ let rounded = Math.floor(r*10);
 document.write(rounded); // 1 to 10 any random numbers
 ```
 
+## `D O M`  :Document object model
+
+The HTML DOM is an API that represents web pages as objects. Browsers create it when loading pages, allowing JavaScript to manipulate HTML elements, attributes, CSS and events.
+```html
+<!-- DOM TREE hierarchy 
+parent child relationships between elements
+each element is a node in the tree
+Text content is also represented as nodes
+Attributes: The id="myDiv" is an attribute of the <div> element.
+DOM represents the page in browser memory, so JS can access and manipulate all of these nodes
+-->
+Document
+  |
+  <html>
+  |   |
+  |   <head>
+  |   |   |
+  |   |   <title>
+  |   |       |
+  |   |       "My Web Page" (text node)
+  |   |
+  |   <body>
+  |       |
+  |       <h1>
+  |       |   |
+  |       |   "Welcome!" (text node)
+  |       |
+  |       <p>
+  |       |   |
+  |       |   "This is a paragraph." (text node)
+  |       |
+  |       <div id="myDiv">
+  |           |
+  |           <ul>
+  |               |
+  |               <li>
+  |               |   |
+  |               |   "Item 1" (text node)
+  |               |
+  |               <li>
+  |                   |
+  |                   "Item 2" (text node)
+```
+
+Accessing Document object
+
+```js
+getElementById() - Element Object
+getElementByName() - Html Collection
+getElementByTagName() - Html Collection
+getElementByClassName()
+// QuerySelectorAll
+css Selectors()
+document.querySelector() - Element Object
+document.querySelectorAll() - Node List
+```
+
+```js
+// Adding content in to h1
+var myH1 = document.getElementById("id_h1");
+myH1.innerHTML = "Fabin riza";
+myH1.style.color = "blue";
+
+// Accessing with class name, class group - html collection(2) like array. Represented with index number
+var myClass1 = document.getElementsByClassName("class_1");
+console.log(myClass1);
+myClass1[0].innerHTML = "Class [0]"; // 0 position from the group class_1 
+
+// HTML any element group byTagname
+var myTagName = document.getElementsByTagName("h2"); 
+myTagName[0].innerHTML = "Tag name changed" // 0 positioned h2 element
+
+// ByName: text from first input and onclick function to span
+var myByname = document.getElementsByName("text_input")[0]; // Node list similar html collection list
+var idSpan= document.getElementById("input_span");
+function message(){
+    idSpan.innerHTML = "Hi " + myByname.value;
+}
+```
+**HtmlCollection vs NodeList** <br>
+
+**`Html collection`** is collection of element of nodes only : can contain only one type of node, and that one type of node is element node. Difference : Html collection can be accessed by their name, by the id or by the index number within that collection.<br>
+**`Node List`** is collection of nodes only : NodeList can contain any Node Type. That means within its collection it can have text nodes, comment nodes, element nodes etc. Difference : A Node list item can only be accessed by their index number<br>
+Html collections are live and node list items are typically static.
+
+```js
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+// 1. HTMLCollection : live
+let listItem = document.getElementsByTagName('li');
+console.log(listItem); // HTMLCollection(3) [li, li, li]
+console.log(listItem.length); // 3
+
+listItem[0].parentNode.appendChild(document.createElement('li')); // one li added and its Live
+console.log(listItem); // HTMLCollection(4) [li, li, li, li]
+console.log(listItem.length); // 4
+
+// 2. NodeList querySelectorAll : static
+let listItem = document.querySelectorAll('li');
+console.log(listItem); // NodeList(3) [li, li, li]
+console.log(listItem.length); // 3
+
+listItem[0].parentNode.appendChild(document.createElement('li')); //its still static at the console but on browser ok
+console.log(listItem); // NodeList(3) [li, li, li]
+console.log(listItem.length); // 3
+
+// Updated NodeList
+let listItem = document.querySelectorAll('li'); // 3 times li
+listItem[0].parentNode.appendChild(document.createElement('li')); // 1 li added
+listItem = document.querySelectorAll('li'); // again calling for update
+console.log(listItem); // NodeList(4) [li, li, li, li]
+console.log(listItem.length); // 4
+```
+
+**Creat and Delete**
+
+```js
+/* <input type="button" value="Create" onclick="creat()">
+<input type="button" value="Remove" onclick="remove()"></input>  */
 
 
-
-
-
-
-
-
-
-
-
-
-
+// creat element span and delete
+let myspanCreated = document.createElement('span');
+function creat(){
+    myspanCreated.innerHTML = "Now click remove";
+    document.body.appendChild(myspanCreated);
+}
+function remove(){
+    myspanCreated.remove(); 
+}
+```
 

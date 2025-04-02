@@ -1,17 +1,12 @@
-// document.write("Hello World");
-// alert("Hello world");
-// console.log(10+10);
-
-document.write("<h1>JAVASCRIPT writing Html element<h1>");
 // document.write
 // console.log
+document.write("<h1>JAVASCRIPT writing Html element<h1>");
 
 
 
-
-
-
-
+let r = Math.random();
+let rounded = Math.floor(r*10);
+document.write(rounded);
 // let a = 100;
 // document.write(Math.abs(a));
 // document.write(Math.max(10, 3, 20, 30));
@@ -19,9 +14,6 @@ document.write("<h1>JAVASCRIPT writing Html element<h1>");
 // document.write(Math.ceil(6.1));
 // document.write(Math.round(6.5));
 // document.write(Math.random());
-// let r = Math.random();
-// let rounded = Math.floor(r*10);
-// document.write(rounded);
 
 // let text = "I AM FABIN RIZA ";
 // document.write(text.length);
@@ -406,3 +398,6 @@ console.log(typeof test2); // object
 console.log(test2 === undefined); // false
 console.log(test2 == undefined); // true
 */
+// document.write("Hello World");
+// alert("Hello world");
+// console.log(10+10);
