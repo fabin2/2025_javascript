@@ -127,6 +127,30 @@ function constScope(){
 constScope();
 ```
 
+**CONST LET** : modifying and reassignment Allowed and Error
+
+```js
+// 1
+const myArray = [];
+const myObject = {};
+myArray.push(1); // [1] modifying Allowed
+myObject.name = "Fabin"; // {name : "Fabin"} modifying Allowed
+myArray = [2, 3]; // Error reassignment
+myObject = {age: 40}; // Error reassignment
+console.log(myArray);
+console.log(myObject);
+
+//2
+let myArray2 = [];
+let myObject2 = {};
+myArray2.push(2); // [2] modifying Allowed
+myObject2.city = "Strasbourg"; // {city : "Strasbourg"} modifying Allowed
+myArray2 = [3, 4]; // [3,4] Allowed Reassignment
+myObject2 = {country : "France"} // {country : "France"} Allowed Reassignment
+console.log(myArray2);
+console.log(myObject2);
+```
+
 ## Truthy values and Falsy values <br>
 
 <img src="images/boolean_truefalsevalue1.PNG" alt="boolean_truefalsevalue1_image" width="40%" height="20%"><br>
@@ -190,6 +214,26 @@ if(!data){
     console.log(`Sorry! no records`);
 }else{
     console.log(`Do something ${data}`);  // execute here, condition False
+}
+```
+
+## Undefined - Null
+
+```js
+let a;
+let b = null;
+
+myFunction(a); // calls the myFunction with the value of a, which is undefined.
+myFunction(b); // calls the myFunction with the value of b, which is null.
+function myFunction(DefualtVal){
+    console.log(DefualtVal);
+}
+
+// 2
+myFunction(a); // 10
+myFunction(b); // null
+function myFunction(DefualtVal = 10){
+    console.log(DefualtVal);
 }
 ```
 
@@ -637,7 +681,74 @@ let totalMark = sum(80, 70, 80);
 percentage(totalMark);
 ```
 
- callback
+## Return
+The return value can be of any data type, including numbers, strings, objects, arrays or even functions.
+```js
+let res1 = fun(10,20);
+function fun(x,y){
+    x+y;
+}
+console.log(res1); // undefined 
+
+// return
+let res1 = fun(10,20);
+function fun(x,y){
+    return x+y;
+}
+console.log(res1); // 30 !!!
+```
+
+```js
+// return
+function calculateFactorial(number){
+    if(isNaN(number) || number < 0){
+        return 'Invalid input !' // if true result = Invalid input !
+    }
+    if(number === 0 || number === 1){
+        return 1;
+    }
+    let factorial = 1;
+    for(let i=2; i<=number; i++){
+        factorial *= i;
+    }
+    return factorial;
+}
+const result = calculateFactorial(4); // 4!=4∗3∗2∗1=24
+console.log(result);
+```
+```js
+// return
+let res = fun();
+function fun(){
+    let i = 1;
+    while(i){
+        document.write(i+"<br>"); //1 2 3 4
+        if(i === 4){
+            return;
+        }
+        document.write(i+"<br>"); //1 2 3
+        i++
+    }
+    document.write("Hello"); // return avoid this execution 
+}
+```
+
+```js
+// RETURN: arrays or objects are used to return MULTIPLE VALUE
+function getData(){
+    let firstname = 'Fabin ',
+    lastname = 'Riza ',
+    age ='40 ',
+    occupation = 'Developpeur '
+
+    return [firstname, lastname, age, occupation] // return multiple values
+}
+const [firstname, lastname, age, occupation] = getData();  // values 
+document.write(`F : ${firstname} L : ${lastname} A : ${age} W : ${occupation}`);
+
+```
+
+## Callback
 ```JS
 // 3 callback included anonymous 
 // 100 Hello 60 HI 60 blabla
@@ -889,3 +1000,35 @@ function remove(){
 }
 ```
 
+**Creat Events**
+
+```js
+/* <span id="eventid">Create Events</span>
+<input type="button" id="eventbutton" value="Color"> */
+
+// Creat Events
+let myEvent = document.getElementById('eventid');
+let myEventbutton = document.getElementById('eventbutton');
+myEvent.addEventListener('mouseover', changeBackground);
+myEventbutton.addEventListener('click', changeColor);
+function changeBackground(){
+    myEvent.style.backgroundColor = 'Red';
+}
+function changeColor(){
+    myEvent.style.color = 'yellow';
+}
+```
+
+## **`Object Oriented`**
+
+```js
+let employee = {
+    name: "Fabin",
+    position: "Developpeur",
+    salary: 5000,
+    getSalary: function(){
+        document.write("Salary of "+this.name+" is "+this.salary+ " as a "+this.position);
+    }
+}
+employee.getSalary(); // Salary of Fabin is 5000 as a Developpeur
+```
