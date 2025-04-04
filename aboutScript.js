@@ -102,3 +102,54 @@ let employee = {
     }
 }
 employee.getSalary();
+
+// CLASS is like a blueprint 
+class Employee {
+    constructor(name, position, salary){
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+    getSalary(){
+        document.write(`CLASS I am ${this.name} works as ${this.position} and my salary is ${this.salary} <br>`);
+    }
+}
+let emp1 = new Employee("Alex", "Accountant", 4000);
+let emp2 = new Employee("Lucy", "Chef de projet", 5000);
+// console.log(emp1, emp2);
+// document.write(emp2.salary);
+emp2.getSalary();
+
+// Static method
+class MathUtils {
+    static add(x, y){
+        return x + y;
+    }
+}
+const result1 = MathUtils.add(5,10);
+console.log(result1);
+
+// // inheritance
+class EmployeeE {
+    constructor(name, position, salary){
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+    getInfos(){
+        document.write(`INHERITANCE Name : ${this.name} Position : ${this.position} Salary : ${this.salary}`)
+    }
+    static myStaticmethod(){
+        console.log("MY Static Function");
+    }
+}
+class Manager extends EmployeeE {
+}
+class Supervisor extends EmployeeE{
+}
+let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
+console.log(mgr1);
+mgr1.getInfos();
+// mgr1.myStaticmethod();
+Manager.myStaticmethod();
+

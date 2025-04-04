@@ -1032,3 +1032,104 @@ let employee = {
 }
 employee.getSalary(); // Salary of Fabin is 5000 as a Developpeur
 ```
+
+## **CLASS** methods objects (instances) **: OOP**
+
+```js
+class Employee {
+    constructor(name, position, salary){
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+    getSalary(){
+        document.write(`I am ${this.name} works as ${this.position} and my salary is ${this.salary}`);
+    }
+}
+let emp1 = new Employee("Alex", "Accountant", 4000); // object
+let emp2 = new Employee("Lucy", "Chef de projet", 6000);
+
+document.write(emp2.salary); // 6000
+emp2.getSalary(); // I am Lucy works as Chef de projet and my salary is 6000
+```
+**inheritance**
+
+1. mgr1 = new Manager(...): Creates a Manager object, calling the EmployeeE constructor.<br>
+2. constructor(...): EmployeeE's constructor sets name, position, and salary.<br>
+3. mgr1.getInfos(): Executes EmployeeE's getInfos() method.<br>
+4. document.write(...): Displays the employee's info.<br>
+
+```js
+// Inheritance
+class EmployeeE {
+    constructor(name, position, salary){
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+    }
+    getInfos(){
+        document.write(`INHERITANCE Name : ${this.name} Position : ${this.position} Salary : ${this.salary}`)
+    }
+}
+class Manager extends EmployeeE {
+}
+class Supervisor extends EmployeeE{
+}
+let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
+
+mgr1.getInfos(); // INHERITANCE Name : Schmidt Position : HR Manager Salary : 6000
+```
+
+```js
+// Static method 
+class MathUtils {
+    static add(x, y){
+        return x + y;
+    }
+}
+const result = MathUtils.add(5,10);
+console.log(result); // 15
+```
+
+```js
+// Static method 
+class EmployeeE {
+    constructor(name, position, salary){
+        ...
+    }
+    getInfos(){
+    }
+    static myStaticmethod(){
+        console.log("MY Static Function");
+    }
+}
+class Manager extends EmployeeE {
+}
+class Supervisor extends EmployeeE{
+}
+let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
+mgr1.myStaticmethod(); // ERROR ! we cant access making object
+Manager.myStaticmethod(); // Access with the class name EmployeeE or Manager
+```
+
+Different types of methods in the Class
+1. Consturctor method : Initializes object instances.
+2. Prototype method : Used for inheritance and sharing methods.
+3. Static methods : Methods that belong to the class itself.
+4. Instance methods : Functions that belong to the instance of the class.
+5. Getters / Setters : Control access to properties.
+6. Class Fields :  initialize instance properties.
+
+CHECK : 
+1. Object litral { }
+2. Constructor function
+3. Prototypes
+4. Classes
+5. Instances (new, this)
+
+CHECK :
+Four pillars : 
+1. Abstraction
+2. Encapsulation
+3. Inheritance
+4. Polymorphism
