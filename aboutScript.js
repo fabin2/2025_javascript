@@ -65,7 +65,7 @@ function calculateFactorial(number){
 const result = calculateFactorial(4); // 4!=4∗3∗2∗1=24
 console.log(result);
 
-// Return: arrays or objects are used to return multiple value
+// // Return: arrays or objects are used to return multiple value
 function getData(){
     let firstname = 'Fabin ',
     lastname = 'Riza ',
@@ -76,13 +76,13 @@ function getData(){
 const {firstname, lastname, age, occupation} = getData();
 document.write(`F : ${firstname} L : ${lastname} A : ${age} W : ${occupation}`);
 
-// Const Let modify and reassignment
+// // Const Let modify and reassignment
 const myArray = [];
 const myObject = {};
 myArray.push(1);
 myObject.name = "Fabin";
-//// myArray = [2,3]; error
-//// myObject = {name : "Fabin"} error
+// // myArray = [2,3]; error
+// // myObject = {name : "Fabin"} error
 let myArray2 = [];
 let myObject2 = {};
 myArray2.push(1);
@@ -92,7 +92,7 @@ myObject2 = {country : "France"}
 console.log(myArray2);
 console.log(myObject2);
 
-// Object Oriented
+// // Object Oriented
 let employee = {
     name: "Fabin",
     position: "Developpeur",
@@ -103,7 +103,7 @@ let employee = {
 }
 employee.getSalary();
 
-// CLASS is like a blueprint 
+// // CLASS is like a blueprint 
 class Employee {
     constructor(name, position, salary){
         this.name = name;
@@ -116,11 +116,11 @@ class Employee {
 }
 let emp1 = new Employee("Alex", "Accountant", 4000);
 let emp2 = new Employee("Lucy", "Chef de projet", 5000);
-// console.log(emp1, emp2);
-// document.write(emp2.salary);
+// // console.log(emp1, emp2);
+// // document.write(emp2.salary);
 emp2.getSalary();
 
-// Static method
+// // Static method
 class MathUtils {
     static add(x, y){
         return x + y;
@@ -150,6 +150,41 @@ class Supervisor extends EmployeeE{
 let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
 console.log(mgr1);
 mgr1.getInfos();
-// mgr1.myStaticmethod();
+// // mgr1.myStaticmethod();
 Manager.myStaticmethod();
 
+// // inheritance Test Check !
+class Employeeparent{
+    constructor(name, age, salary){
+        this.empname = name;
+        this.empage = age;
+        this.empsalary = salary;
+    }
+    info(){
+        document.write(`<h3>Employee Class</h3> 
+        Name: ${this.empname} 
+        Age : ${this.empage} 
+        Salary : ${this.empsalary}`)
+    }
+}
+class Managerchild extends Employeeparent{
+    info(){
+        let travelAllowance = 500;
+        let phoneAllowance = 200;
+        let totalSalary = this.empsalary + travelAllowance + phoneAllowance;
+
+        document.write(`<h3>Manager Class</h3> 
+        Name: ${this.empname} 
+        Age : ${this.empage} 
+        Salary : ${totalSalary}`)
+    }
+}
+class testchild extends Managerchild{
+
+}
+let c = new testchild("Test", 32, 2200 );
+let a = new Managerchild("Fabin Riza", 40, 3000);
+let b = new Employeeparent("John", 35, 2500);
+c.info();
+a.info();
+b.info();

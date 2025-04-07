@@ -1079,6 +1079,24 @@ let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
 
 mgr1.getInfos(); // INHERITANCE Name : Schmidt Position : HR Manager Salary : 6000
 ```
+Super( ) executes the parent's constructor. Its the actual function call that runs the employee constructors code.
+```js
+// inheritance : super constructor in Child class
+class Employee{
+    constructor(name){
+        console.log(`Constructor : Employee ${name}`);
+    }
+}
+class Manager extends Employee{
+    constructor(name){
+        super(); // super !!
+        console.log(`Constructor : Manager is ${name}`);
+    }
+}
+let a = new Manager(`Fabin Riza`);
+// Constructor : Employee undefined
+// Constructor : Manager is Fabin Riza
+```
 
 ```js
 // Static method 
@@ -1110,6 +1128,45 @@ class Supervisor extends EmployeeE{
 let mgr1 = new Manager("Schmidt", "HR Manager", 6000);
 mgr1.myStaticmethod(); // ERROR ! we cant access making object
 Manager.myStaticmethod(); // Access with the class name EmployeeE or Manager
+```
+
+Inheritance Test 
+```js
+// test CHECK !
+class Employeeparent{
+    constructor(name, age, salary){
+        this.empname = name;
+        this.empage = age;
+        this.empsalary = salary;
+    }
+    info(){
+        document.write(`<h3>Employee Class</h3> 
+        Name: ${this.empname} 
+        Age : ${this.empage} 
+        Salary : ${this.empsalary}`)
+    }
+}
+class Manager extends Employeeparent{
+    info(){
+        let travelAllowance = 500;
+        let phoneAllowance = 200;
+        let totalSalary = this.empsalary + travelAllowance + phoneAllowance;
+
+        document.write(`<h3>Manager Class</h3> 
+        Name: ${this.empname} 
+        Age : ${this.empage} 
+        Salary : ${totalSalary}`)
+    }
+}
+class test extends Manager{
+
+}
+let c = new test("Test", 32, 2200 );
+let a = new Manager("Fabin Riza", 40, 3000);
+let b = new Employeeparent("John", 35, 2500);
+c.info(); // Manager Class | Name: Test Age : 32 Salary : 2900
+a.info(); // Manager Class | Name: Fabin Riza Age : 40 Salary : 3700
+b.info(); // Employee Class | Name: John Age : 35 Salary : 2500
 ```
 
 Different types of methods in the Class
