@@ -1169,6 +1169,95 @@ a.info(); // Manager Class | Name: Fabin Riza Age : 40 Salary : 3700
 b.info(); // Employee Class | Name: John Age : 35 Salary : 2500
 ```
 
+# **ECMA ES6**
+**VAR:** global and function scoped.
+**LET:** global and block scoped.
+**CONST:** global and block scoped <br>
+```js
+// 1. Global Scope / Global varible
+var a1 = "HTML";
+let a2 = "CSS";
+const a3 = "JavaScript";
+
+function message(){     
+    console.log(a1); 
+    console.log(a2);
+    console.log(a3);
+}
+message(); // Ok all log
+console.log(a1);// Ok
+console.log(a2);// Ok
+console.log(a3);// Ok
+
+// 2. function scoped
+function message(){ 
+    var a1 = "HTML"; // var function scoped
+    let a2 = "CSS"; // block scoped
+    const a3 = "JavaScript"; // block scoped
+    if(true){
+        console.log(a1);// Ok
+        console.log(a2);// Ok
+        console.log(a3);// Ok
+    }
+    console.log(a1);// Ok var function scoped
+    console.log(a2);// Ok Block scoped
+    console.log(a3);// Ok Block scoped
+}
+message(); // Ok all log
+console.log(a1);// NOTok
+console.log(a2);// NOTok
+console.log(a3);// NOTok
+
+// 3. block scoped {  }
+function message(){
+    if(true){
+        var a1 = "HTML"; // Function scoped
+        let a2 = "CSS"; // Block scoped
+        const a3 = "JavaScript"; // Block scoped
+        console.log(a1); // Ok
+        console.log(a2); // Ok
+        console.log(a3); // Ok
+    }
+    console.log(a1); // OK Function scoped
+    console.log(a2); // NOTok Block scoped
+    console.log(a3); // NOTok Block scoped
+}
+message();
+```
+
+**VAR LET CONST:** Update value, Redeclare
+```js
+// 1. Update value
+var c1 = "HTML";
+c1 = "Python";
+console.log(c1); // Python
+
+let c2 = "HTML";
+c2 = "Python";
+console.log(c2); // Python
+
+const c3 = "HTML";
+c3 = "Python";
+console.log(c3); //NOTok
+
+// 2. Redeclare
+var c1 = "HTML";
+var c1 = "Python";
+console.log(c1);// Python
+
+let c1 = "HTML";
+let c1 = "Python";
+console.log(c1); //NOTok let const
+
+// 3. Initial value
+var c1; 
+let c2;
+const c3; // cannot initialized must Require value
+c1 = "Python"; //Ok
+c2 = "JAVA";//Ok
+console.log(c1); // Python
+```
+
 Different types of methods in the Class
 1. Consturctor method : Initializes object instances.
 2. Prototype method : Used for inheritance and sharing methods.
