@@ -1225,7 +1225,7 @@ function message(){
 message();
 ```
 
-**VAR LET CONST:** Update value, Redeclare
+**VAR LET CONST:** Update value, Redeclare, Initial value
 ```js
 // 1. Update value
 var c1 = "HTML";
@@ -1249,14 +1249,75 @@ let c1 = "HTML";
 let c1 = "Python";
 console.log(c1); //NOTok let const
 
-// 3. Initial value
-var c1; 
+// 3. Initial value (const reuired var and let optional)
+var c1;
 let c2;
 const c3; // cannot initialized must Require value
 c1 = "Python"; //Ok
 c2 = "JAVA";//Ok
 console.log(c1); // Python
 ```
+
+**Default function parameters**
+```js
+// 1. Default function parameters
+function add(a=10, b=20){
+    console.log(a+b);
+}
+add(); //30 defualt 
+add(100); //120 individual
+add(100, 200); //300
+
+// 2.
+function signin(user = "Guest"){
+    console.log("Welcome " + user);
+}
+signin(); //Welcome Guest
+signin("Peter"); //Welcome Peter
+```
+
+**Anonymous function** : function without name(identifier) to a variable
+```js
+// 1.anonymous
+let message = function (){
+    console.log("Good morning");
+}
+message();
+
+// 2.anonymous callback
+setTimeout(function(){
+    console.log("this runs after 3 seconds");
+}, 3000);
+
+//3. named function as a callback
+function displayMessage(){
+    console.log("Time's up!")
+}
+setTimeout(displayMessage, 1000);
+```
+
+**Arrow function :** singleStatement **`( )=>`** multistatement **`( )=>{ }`** 
+```js
+//1. Arrow function singleStatement without curly braces
+let message = ()=> console.log("Arrow funtion");
+message();
+
+// 2.argument parameters
+let sum = (x,y) => console.log(x+y);
+sum(10, 30); // argument
+
+//3. More than one statement with curly braces
+let number = (num) => {
+    if (num>0){
+        console.log("Positive");
+    }else{
+        console.log("Negetive");
+    }
+}
+number(-10); //Negetive
+```
+
+
 
 Different types of methods in the Class
 1. Consturctor method : Initializes object instances.

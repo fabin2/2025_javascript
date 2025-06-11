@@ -1,7 +1,54 @@
+// 8. Arrow function
+let message = ()=> console.log("Arrow funtion");
+message();
+// argument parameters
+let sum = (x,y) => console.log(x+y);
+sum(10, 30);
+// More than one statement with curly braces
+let number = (num) => {
+    if (num>0){
+        console.log("Positive");
+    }else{
+        console.log("Negetive");
+    }
+}
+number(-10);
 
-let c1;
-c1 = "Python";
-console.log(c1);
+
+////7. Anonymous function
+// let message = function (){
+//     console.log("Good morning");
+// }
+// message();
+// //2.anonymous callback
+// setTimeout(function(){
+//     console.log("this runs after 3 seconds");
+// }, 3000);
+// //3.named function as a callback
+// function displayMessage(){
+//     console.log("Time's up!")
+// }
+// setTimeout(displayMessage, 1000);
+
+////6. Default function parameters
+// function add(a=10, b=20){
+//     console.log(a+b);
+// }
+// add();
+// add(100);
+// add(100, 200);
+
+//2
+// function signin(user = "Guest"){
+//     console.log("Welcome " + user);
+// }
+// signin();
+// signin("Peter");
+
+// 5.
+// let c1;
+// c1 = "Python";
+// console.log(c1);
 
 ////4. update let const var
 // const c1 = "HTML";
